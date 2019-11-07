@@ -19,3 +19,5 @@ def search(request):
         message = "No results."
         return render(request, 'search.html',{"message":message})
 
+def location(request):
+    return render(request,'location.html')
