@@ -19,19 +19,29 @@ class Category(models.Model):
     )
     category = models.CharField(max_length=20, choices=IMAGE_CATEGORIES)
 
+    @classmethod
+    def search_by_category(cls,category):
+        category = cls.objects.filter(category =category)
+        return category
+
     def __str__(self):
         return self.category
 
 class Image(models.Model):
     image = models.ImageField(upload_to='gallery/')
     name = models.CharField(max_length=30)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='img_category')
     description = models.TextField()
-    location = models.ForeignKey(Location)
+    location = models.ForeignKey(Location,on_delete=models.CASCADE, related_name='img_location')
+
+    @classmethod
+    def search_images(cls,category):
+        images = cls.objects.filter(category = category)
+        return images
+
 
     def __str__(self):
         return self.name
-
 
 
 
