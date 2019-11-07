@@ -22,4 +22,8 @@ def search(request):
 
 def location(request):
 
+    if 'country' in request.GET and request.GET['country']:
+        country = request.GET.get('country')
+        
+
     return render(request,'location.html')
