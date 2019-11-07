@@ -1,14 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="row" style="height:500px">
+  <div class="slider" >
+        <ul class="slides">
+          <li style="background-image: url(/media/static/1.jpeg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <div class="caption left-align">
+              <h3>Welcome to The Gallery</h3>
+              <h5 class="light grey-text text-lighten-3">We have images of all types. Scroll down to view some of the recent posts.</h5>
+            </div>
+          </li>
+          <li style="background-image: url(/media/static/2.jpeg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <div class="caption right-align">
+              <h3>See photos from different locations.</h3>
+              <h5 class="light grey-text text-lighten-3">Our database contains pictures from various places in the World.</h5>
+            </div>
+          </li>
+          <li style="background-image: url(/media/static/3.jpeg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <div class="caption center-align">
+              <h3>Search photos according to Category</h3>
+              <h5 class="light grey-text text-lighten-3">You can use the search bar to find photos in categories such as Travel, Food, Movies, Places, etc. Please explore</h5>
+            </div>
+          </li>
+        </ul>
+      </div>
+</div>
+
+
+
 <div class="row">
+    <div class="container carousel">
     {%for image in images%}
-    <div class="col 4">
-        <img class="materialboxed" src="{{image.image.url}}" height="200" width="200">
+    <div class="col s3">
+        <img class="materialboxed" data-caption="{{image.name}}" src="{{image.image.url}}" height="200" width="200">
     </div>
     {%empty%}
     <p>No images</p>
-    {%endfor%}  
+    {%endfor%}
+    </div>
+         
 </div>
+
+
 {% endblock %}
 
