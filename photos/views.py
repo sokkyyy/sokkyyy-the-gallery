@@ -21,6 +21,7 @@ def search(request):
         message = "No results."
         return render(request, 'search.html',{"message":message})
 
+
 def location(request):
 
     if 'country' in request.GET and request.GET['country']:

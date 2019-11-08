@@ -63,57 +63,69 @@
   <!--/.Carousel Wrapper-->
 </div>
 
-<div class="row" style="height:500px">
-  <div class="slider" >
-        <ul class="slides">
-          <li style="background-image: url(/media/static/1.jpeg); background-position: center;background-repeat: no-repeat;background-size: cover;">
-            <div class="caption left-align">
-              <h3>Welcome to The Gallery</h3>
-              <h5 class="light grey-text text-lighten-3">We have images of all types. Scroll down to view some of the recent posts.</h5>
-            </div>
-          </li>
-          <li style="background-image: url(/media/static/2.jpeg); background-position: center;background-repeat: no-repeat;background-size: cover;">
-            <div class="caption right-align">
-              <h3>See photos from different locations.</h3>
-              <h5 class="light grey-text text-lighten-3">Our database contains pictures from various places in the World.</h5>
-            </div>
-          </li>
-          <li style="background-image: url(/media/static/3.jpeg); background-position: center;background-repeat: no-repeat;background-size: cover;">
-            <div class="caption center-align">
-              </div>
-          </li>
-        </ul>
-      </div>
-</div>
 
 
+<div class="row" style="margin-left:200px">
 
-<div class="row">
-    <div class="container carousel">
     {%for image in images%}
-    <div class="col s3">
-        <img class="materialboxed" data-caption="{{image.name}}" src="{{image.image.url}}" height="200" width="200">
-        
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal modal-fixed-footer">
-          <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-          </div>
+    <div class="view overlay zoom col-sm-3" 
+    style="margin-bottom: 15px; margin-left: 15px; background-image: url({{image.image.url}});  
+    background-position: center; background-repeat: no-repeat; background-size: cover;
+    height:300px">
+
+        <div class="mask flex-center waves-effect waves-light">
+          <p class="white-text">{{image.name}}</p>
         </div>
 
+        <!-- Button trigger modal -->
+`        <a style="margin-top:260px; margin-left: 205px; color: white;" type="button" class="btn-floating" data-toggle="modal" data-target="#fullHeightModalRight{{image.id}}" data-toggle="tooltip" data-placement="top"
+            title="View details">
+            <i class="fas fa-info-circle fa-2x"></i>
+          </a>
+
+
+        <!-- Full Height Modal Right -->
+        <div class="modal fade right" id="fullHeightModalRight{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      
+        <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+        <div class="modal-dialog modal-full-height modal-right" role="document">
+        
+        
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title w-100" id="myModalLabel">{{image.name}}</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" >
+            <img src="{{image.image.url}}" class="" alt="zoom" width="400" height="400" style="object-fit: cover;">
+            <div class="mask flex-center waves-effect waves-light">
+              <p class="white-text">{{image.name}}</p>
+            </div>
+            <p class="black-text">{{image.description}}</p>
+            <p class="black-text">{{image.location.country.name}}</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+        </div>
+        </div>
+        <!-- Full Height Modal Right -->
     </div>
+
+    
     {%empty%}
     <p>No images</p>
-    {%endfor%}
-    </div>
-         
+    {%endfor%}         
 </div>
+
+
+
+
 
 
 {% endblock %}
