@@ -1,11 +1,66 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block content %}
 
 <div style="height: 100vh">
-    <div class="flex-center flex-column">
-      <h1 class="animated fadeIn mb-4">MDBootstrap loves Django <i class="fa fa-heart red-text"></i></h1>
+<!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-2" data-slide-to="1"></li>
+      <li data-target="#carousel-example-2" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <div class="view">
+          <img class="d-block w-100" src="{{MEDIA_URL}}static/2.jpeg"  height="580" alt="First slide">
+          <div class="mask rgba-black-light"></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Welcome to The Gallery</h3>
+          <p>We have images of all types. Scroll down to view some of the recent posts.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view" >
+          <img class="d-block w-100" src="{{MEDIA_URL}}static/1.jpeg" alt="Second slide" height="580">
+          <div class="mask rgba-black-strong"></div>
+        </div>
+
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">See photos from different locations.</h3>
+          <p>You can use the search bar to find photos in categories such as Travel, Food, Movies, Places, etc. Please explore</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img class="d-block w-100" src="{{MEDIA_URL}}static/3.jpeg"  height="580"  alt="Third slide">
+          <div class="mask rgba-black-slight"></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Search photos according to Category</h3>
+          <p>Our database contains pictures from various places in the World.</p>
+        </div>
+      </div>
     </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+  </div>
+  <!--/.Carousel Wrapper-->
 </div>
 
 <div class="row" style="height:500px">
@@ -25,9 +80,7 @@
           </li>
           <li style="background-image: url(/media/static/3.jpeg); background-position: center;background-repeat: no-repeat;background-size: cover;">
             <div class="caption center-align">
-              <h3>Search photos according to Category</h3>
-              <h5 class="light grey-text text-lighten-3">You can use the search bar to find photos in categories such as Travel, Food, Movies, Places, etc. Please explore</h5>
-            </div>
+              </div>
           </li>
         </ul>
       </div>

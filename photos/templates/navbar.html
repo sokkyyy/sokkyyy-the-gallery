@@ -7,37 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<!--
-  <div class="navbar-fixed">
-    <nav class="red lighten-3">
-      <div class="nav-wrapper">
-        <a href="{% url 'home'%}" class="brand-logo"><i class="material-icons">camera</i>THE GALLERY</a>
-        <ul class="right hide-on-med-and-down">
-
-          <li class="nav-wrapper">
-            
-              <form role="search" action="{% url 'search' %}">
-  
-                <input id="search" type="search" name="search" style="color: black;" placeholder="Search for any category" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-              </form>
-            
-          </li>
-          <li class="tooltipped" data-position="bottom" data-tooltip="Search Location">
-            <a href="{% url 'location'%}">{% fa5_icon 'globe-africa' 'fas' spin=True%}</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
 
 
--->
   <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+<nav class="navbar navbar-expand-lg navbar-dark elegant-color-dark" style="color: cornsilk;">
 
     <!-- Navbar brand -->
-    <a href="{% url 'home'%}" class="brand-logo" style="color: black;">{% fa5_icon 'images' 'far' size="fa-2x" color="black"%}THE GALLERY</a>
+    <a href="{% url 'home'%}" class="brand-logo">{% fa5_icon 'images' 'far' size="fa-2x"%}THE GALLERY</a>
   
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -57,7 +33,7 @@
 
         </li>
         <li class="nav-item">
-            <a href="{% url 'location'%}" >{% fa5_icon 'globe-africa' 'fas' spin=True color="black"%}</a>
+            <a href="{% url 'location'%}" >{% fa5_icon 'globe-africa' 'fas' spin=True %}</a>
         </li>
   
       </ul>
