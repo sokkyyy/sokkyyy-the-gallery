@@ -10,10 +10,10 @@
 
 
   <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark elegant-color-dark" style="color: cornsilk;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark elegant-color-dark" style="color: cornsilk;">
 
     <!-- Navbar brand -->
-    <a href="{% url 'home'%}" class="brand-logo">{% fa5_icon 'images' 'far' size="fa-2x"%}THE GALLERY</a>
+    <a href="{% url 'home'%}" class="brand-logo white-text">{% fa5_icon 'images' 'far' size="fa-2x" color="white"%}<span style="font-size: 25px; margin-left: 10px;">THE GALLERY</span></a>
   
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -32,8 +32,11 @@
         <li class="nav-item">
 
         </li>
-        <li class="nav-item">
-            <a href="{% url 'location'%}" >{% fa5_icon 'globe-africa' 'fas' spin=True %}</a>
+        <li class="nav-item" style="margin-left: 500px;">
+            <a data-toggle="tooltip" data-placement="top" title="Location" 
+            href="{% url 'location'%}" >
+              {% fa5_icon 'globe-africa' 'fas' spin=True size="fa-2x" color="white"%}
+            </a>
         </li>
   
       </ul>
