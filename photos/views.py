@@ -34,9 +34,13 @@ def location(request):
         
 
         country = dict(countries)[location_object]
-        message = f'{country}'
+        no_message = ''
+        message = f'{country}' #REFACTOR 
+
+        if not images:
+            no_message = "No images for this location"
  
-        return render(request,'location.html',{"images":images, "message":message,})
+        return render(request,'location.html',{"images":images, "message":message, "no_message":no_message,})
     else:
         message = "Select A Country"
         return render(request,'location.html',{"message":message})
