@@ -15,7 +15,6 @@ def search(request):
         searched_images = Image.search_image(category)
         message = f"{search_term}" 
 
-        print(searched_images[0].location.country.name)
 
         return render(request, 'search.html',{"message":message, "images":searched_images})
     else:

@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'materialize',
     'django_countries',
+    'fontawesome_5',
 ]
 
 MIDDLEWARE = [

@@ -1,3 +1,4 @@
+{% load fontawesome_5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +22,9 @@
               </form>
             
           </li>
-          <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-          <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-          <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+          <li class="tooltipped" data-position="bottom" data-tooltip="Search Location">
+            <a href="{% url 'location'%}">{% fa5_icon 'globe-africa' 'fas' spin=True%}</a>
+          </li>
         </ul>
       </div>
     </nav>

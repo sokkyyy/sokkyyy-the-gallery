@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load fontawesome_5 %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +13,9 @@
 
     <!--Import materialize.css-->
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}"  media="screen,projection"/>
+
+    <!--Fontawesome-->
+    {% fontawesome_5_static %} 
 </head>
 </head>
 <body>
@@ -24,27 +26,7 @@
     
     
     {% block script%}
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="{% static 'materialize/bin/materialize.js' %}"></script>
-
-        
-        <script>
-
-            $(document).ready(function(){
-                $('.slider').slider();
-            });
-
-            // Activate image modal for materialize
-            $(document).ready(function(){
-                $('.materialboxed').materialbox();
-            });
-            // Activate image carousel for materialize
-            $(document).ready(function(){
-              $('select').material_select();
-            });
-
-
-        </script>
+       
     {% endblock%}
 </body>
 </html>
