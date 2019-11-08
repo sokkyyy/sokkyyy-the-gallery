@@ -14,11 +14,10 @@ class Location(models.Model):
 
     @classmethod
     def find_location(cls,country):
-        location = cls.objects.filter(country=country)
+        location = cls.objects.filter(country=country).all()
         return location
     
-    def __repr__(self):
-        return self.country
+
 
 class Category(models.Model):
     IMAGE_CATEGORIES = (
@@ -57,8 +56,17 @@ class Image(models.Model):
     
     @classmethod
     def filter_by_location(cls,location):
-        images = cls.objects.filter(location = location)
-        return images
+
+        images = cls.objects.all()
+        loc_images=[]
+
+        for image in images:
+            for country in location:
+                if image.location_id == country.id:
+                    loc_images.append(image)
+        
+        return loc_images
+
 
 
     def __str__(self):

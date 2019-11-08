@@ -48,7 +48,11 @@
           // Tooltips Initialization
           $(function () {
             $('[data-toggle="tooltip"]').tooltip()
-          })
+          });
+
+          $(document).ready(function() {
+            $('.mdb-select').materialSelect();
+          });
         </script> 
     {% endblock%}
 </body>

@@ -26,13 +26,17 @@ def location(request):
 
     if 'country' in request.GET and request.GET['country']:
         location_object = request.GET.get('country')
+
         location = Location.find_location(location_object)
+
         images = Image.filter_by_location(location)
-         
+
+        
+
         country = dict(countries)[location_object]
         message = f'{country}'
  
-        return render(request, 'location.html',{"images":images, "message":message})
+        return render(request,'location.html',{"images":images, "message":message,})
     else:
         message = "Select A Country"
         return render(request,'location.html',{"message":message})
