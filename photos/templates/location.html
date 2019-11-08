@@ -6,17 +6,29 @@
 {% get_countries as countries %}
 
 
-<div class="input-field col s6">
+<div class="container input-field col s6">
     <form action="{% url 'location' %}">
         <select name="country">
-            <option>Select Country:</option>
+            <option value="">Select Country:</option>
         {% for country in countries %}
-            <option value="{{ country }}">{{ country.name }}</option>
+            <option value="{{ country.code }}">{{ country.name }}</option>
         {% endfor %}
         </select>
         <button class="waves-effect waves-light btn" type="submit">Submit</button>
     </form>
 </div>
-
-
+<div class="container">
+    <h5>{{message}}</h5>
+</div>
+{% if images %}
+<div class="container">
+{%for image in images %}
+<img class="materialboxed" data-caption="{{image.name}}" src="{{image.image.url}}" height="200" width="200">
+{%endfor%}
+</div>
+{%else%}
+<div class="container">
+    <p>No images for this Location</p>
+</div>
+{%endif%}
 {%endblock%}

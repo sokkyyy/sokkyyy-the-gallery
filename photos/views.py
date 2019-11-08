@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Image,Category,Location
-
+from django_countries import countries
 
 # Create your views here.
 def home(request):
@@ -15,6 +15,8 @@ def search(request):
         searched_images = Image.search_image(category)
         message = f"{search_term}" 
 
+        print(searched_images[0].location.country.name)
+
         return render(request, 'search.html',{"message":message, "images":searched_images})
     else:
         message = "No results."
@@ -23,7 +25,14 @@ def search(request):
 def location(request):
 
     if 'country' in request.GET and request.GET['country']:
-        country = request.GET.get('country')
-        
-
-    return render(request,'location.html')
+        location_object = request.GET.get('country')
+        location = Location.find_location(location_object)
+        images = Image.filter_by_location(location)
+         
+        country = dict(countries)[location_object]
+        message = f'{country}'
+ 
+        return render(request, 'location.html',{"images":images, "message":message})
+    else:
+        message = "Select A Country"
+        return render(request,'location.html',{"message":message})

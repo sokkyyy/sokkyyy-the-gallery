@@ -7,6 +7,11 @@ from django_countries.fields import CountryField
 # Create your models here.
 class Location(models.Model):
     country = CountryField(blank="select country")
+
+    @classmethod
+    def find_location(cls,country):
+        location = cls.objects.filter(country=country)
+        return location
     
     def __repr__(self):
         return self.country
@@ -47,7 +52,7 @@ class Image(models.Model):
         return images
     
     @classmethod
-    def filter_by_location(cls, location):
+    def filter_by_location(cls,location):
         images = cls.objects.filter(location = location)
         return images
 
