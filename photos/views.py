@@ -44,3 +44,9 @@ def location(request):
     else:
         message = "Select A Country"
         return render(request,'location.html',{"message":message})
+
+
+def copy_image(request,image_id):
+    image = Image.copy_image_url(image_id)
+
+    return redirect(home)

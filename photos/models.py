@@ -1,7 +1,8 @@
 from django.db import models
 from django_countries.fields import CountryField
 from fontawesome_5.fields import IconField
-
+import pyperclip
+from django.conf import settings
 
 #FOR FONT-AWESOME
 class FontAwesome(models.Model):
@@ -66,6 +67,14 @@ class Image(models.Model):
                     loc_images.append(image)
         
         return loc_images
+    
+    @classmethod
+    def copy_image_url(cls,image_id):
+        image = cls.objects.filter(id=image_id)
+        print(image[0].name)
+        image_url = f'{settings.BASE_DIR}{image[0].image.url}'
+        pyperclip.copy(image_url)
+        
 
 
 
