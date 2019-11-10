@@ -50,6 +50,13 @@ class Image(models.Model):
     description = models.TextField()
     location = models.ForeignKey(Location,on_delete=models.CASCADE, related_name='img_location')
 
+
+    def save_image(self):
+        self.save()
+    
+    def delete_image(self):
+        self.delete()
+
     @classmethod
     def search_image(cls,category):
         images = cls.objects.filter(category = category)
@@ -74,9 +81,11 @@ class Image(models.Model):
         print(image[0].name)
         image_url = f'{settings.BASE_DIR}{image[0].image.url}'
         pyperclip.copy(image_url)
-        
 
-
+    @classmethod
+    def get_image_by_id(cls, id):
+        image = Image.objects.get(pk=id)
+        return image        
 
     def __str__(self):
         return self.name

@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from .models import Image,Category,Location
 from django_countries import countries
 
+
+
+
+
 # Create your views here.
 def home(request):
     images = Image.objects.all()
