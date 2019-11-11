@@ -7,7 +7,6 @@
         {% else %}
           <h2> Found 0 articles for the search term {{message}}</h2>
         {% endif %}
-    
 </div>
 
 <div class="row" style="margin-left:200px ">
@@ -38,12 +37,14 @@
       
       
       <div class="modal-content">
+
         <div class="modal-header">
           <h4 class="modal-title w-100" id="myModalLabel">DETAILS</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body" >
           <img src="{{image.image.url}}" class="" alt="zoom" width="380" height="400" style="object-fit: cover;">
           <div class="mask flex-center waves-effect waves-light">
