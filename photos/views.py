@@ -5,8 +5,6 @@ from django_countries import countries
 
 
 
-
-
 # Create your views here.
 def home(request):
     images = Image.objects.all()
@@ -34,9 +32,6 @@ def location(request):
         location = Location.find_location(location_object)
 
         images = Image.filter_by_location(location)
-
-        
-
         country = dict(countries)[location_object]
         no_message = ''
         message = f'Location: {country}'  
