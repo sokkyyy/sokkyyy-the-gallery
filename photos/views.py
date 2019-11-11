@@ -39,7 +39,7 @@ def location(request):
 
         country = dict(countries)[location_object]
         no_message = ''
-        message = f'{country}' #REFACTOR 
+        message = f'Location: {country}'  
 
         if not images:
             no_message = "No images for this location"

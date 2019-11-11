@@ -3,9 +3,14 @@
 {%block content%}
 <div class="row" style="margin-top: 100px; margin-left:50px">
         {% if images %}
-          <h2>Results for {{message}}:</h2>
+        <div class="container">
+            <h4>Results for '{{message}}'':</h4>
+        </div>
         {% else %}
-          <h2> Found 0 articles for the search term {{message}}</h2>
+          <div class="container">
+            <h4> No Results for Search term '{{message}}'.</h4>
+            <p> Use these categories: Places, People, Food, Travel and Sports.</p>
+          </div>
         {% endif %}
 </div>
 
@@ -51,14 +56,13 @@
             <p class="white-text">{{image.name}}</p>
           </div>
 
-
           <div class="container" style="margin-top: 30px;">
             <p class="black-text"><i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="View details"></i>{{image.description}}</p>
             <p class="black-text"><i class="fas fa-globe-africa"></i>{{image.location.country.name}}</p>
           </div>
         </div>
         <div class="modal-footer justify-content-center">
-          <a href="{% url 'copy_image' image.id %}" class="btn btn-primary">Copy</a>
+          <a href="{% url 'copy_image' image.id %}" class="btn aqua-gradient">Copy</a>
         </div>
       </div>
       </div>
@@ -66,9 +70,6 @@
       <!-- Full Height Modal Right -->
   </div>
 
-  
-  {%empty%}
-  <p>No images</p>
   {%endfor%}         
 </div>
 {%endblock%}

@@ -7,25 +7,26 @@
 
 
 
-<div class="row" style="margin-top: 100px;">
-    <form action="{% url 'location' %}">
-        <select class="custom-select custom-select-sm" name="country">
+<div class="row jarallax" style="padding-top: 100px; padding-bottom: 100px; background-image: url({{MEDIA_URL}}static/3.jpeg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <div class="container" style="margin-left:450px">
+
+        <h2 class="text-white">{{message}}</h2>
+    
+    </div>
+    <form action="{% url 'location' %}" style="margin-left: 450px; margin-top: 50px;">
+        <select class="custom-select custom-select-sm " name="country">
             <option value="">Select Country:</option>
         {% for country in countries %}
             <option value="{{country.code}}">{{ country.name }}</option>
         {% endfor %}
         </select>
-        <button class="waves-effect waves-light btn" type="submit">Submit</button>
+        <button class="btn aqua-gradient" type="submit">Find Pictures</button>
     </form>
 </div>
 
-<div class="row" style="margin-left:200px">
 
-    <h2>{{message}}</h2>
 
-</div>
-
-<div class="row" style="margin-left:200px">
+<div class="row" style="margin-left:200px; margin-top: 50px;">
     {%for image in images%}
 
     <div class="view overlay zoom col-sm-3" 
@@ -71,7 +72,7 @@
             </div>
           </div>
           <div class="modal-footer justify-content-center">
-            <a href="{% url 'copy_image' image.id %}" class="btn btn-primary">Copy</a>
+            <a href="{% url 'copy_image' image.id %}" class="btn aqua-gradient">Copy</a>
           </div>
         </div>
         </div>
@@ -81,7 +82,7 @@
 
     
     {%empty%}
-    <p>{{no_message}}</p>
+    <h5 style="margin-left: 350px; margin-top: 100px;">{{no_message}}</h5>
     {%endfor%}         
 </div>
 
