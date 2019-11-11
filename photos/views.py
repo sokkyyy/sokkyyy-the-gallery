@@ -51,6 +51,6 @@ def location(request):
 
 
 def copy_image(request,image_id):
-    image = Image.copy_image_url(image_id)
+    Image.copy_image_url(image_id)
 
     return redirect(home)
