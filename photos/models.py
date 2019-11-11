@@ -2,7 +2,8 @@ from django.db import models
 from django_countries.fields import CountryField
 import pyperclip
 from django.conf import settings
-
+from django.http import Http404
+from pyperclip import PyperclipException
 
 
 
@@ -75,9 +76,13 @@ class Image(models.Model):
     @classmethod
     def copy_image_url(cls,image_id):
         image = cls.objects.filter(id=image_id)
-        print(image[0].name)
         image_url = f'{settings.BASE_DIR}{image[0].image.url}'
-        pyperclip.copy(image_url)
+        
+        try:
+            pyperclip.copy(image_url)
+        except PyperclipException:
+            raise Http404()
+
 
     @classmethod
     def get_image_by_id(cls, id):
