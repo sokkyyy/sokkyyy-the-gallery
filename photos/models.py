@@ -1,12 +1,9 @@
 from django.db import models
 from django_countries.fields import CountryField
-from fontawesome_5.fields import IconField
 import pyperclip
 from django.conf import settings
 
-#FOR FONT-AWESOME
-class FontAwesome(models.Model):
-    icon = IconField()
+
 
 
 # Create your models here.
